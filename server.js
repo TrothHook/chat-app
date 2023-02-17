@@ -8,7 +8,7 @@ const io = socketio(server);
 
 // When the client connects
 io.on('connection', socket => {
-  // console.log('New WS Connection');
+  // console.log(socket);
 
   //   send messages or events back and forth. Emit a message from the client to the server
   // Welcome message to the current user
@@ -20,6 +20,12 @@ io.on('connection', socket => {
   // Runs when a user disconnects
   socket.on('disconnect', () => {
     io.emit('message', 'A user has left the chat');
+  });
+
+  // Listen for chat message
+  socket.on('chatMessage', msg => {
+    // console.log(msg);
+    io.emit('message', msg);
   });
 });
 
