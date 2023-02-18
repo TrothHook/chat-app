@@ -26,8 +26,7 @@ function outputMessage(message) {
   div.appendChild(para1);
   // div.innerHTML = `<p class="meta">Barun <span>4:30pm</span></p>
   // <p class="text">${message}</p>`;
-  console.log('message.username');
-  document.querySelector('.chat-messages').appendChild(div);
+  chatMessages.appendChild(div);
 }
 
 // Add room name to DOM
