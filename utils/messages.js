@@ -1,0 +1,1 @@
+function formatMessage(username, room) {}
