@@ -17,19 +17,16 @@ function outputMessage(message) {
   div.classList.add('message');
   const para = document.createElement('p');
   para.classList.add('meta');
-  para.innerText = username;
-  const timeString12hr = new Date().toLocaleTimeString('en-IN', {
-    hour: 'numeric',
-    minute: 'numeric'
-  });
-  para.innerHTML += ` <span>${timeString12hr}</span>`;
+  para.innerText = message.username;
+  para.innerHTML += ` <span>${message.time}</span>`;
   div.appendChild(para);
   const para1 = document.createElement('p');
   para1.classList.add('text');
-  para1.innerText = message;
+  para1.innerText = message.text;
   div.appendChild(para1);
   // div.innerHTML = `<p class="meta">Barun <span>4:30pm</span></p>
   // <p class="text">${message}</p>`;
+  console.log('message.username');
   document.querySelector('.chat-messages').appendChild(div);
 }
 

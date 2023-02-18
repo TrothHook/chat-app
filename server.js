@@ -17,12 +17,12 @@ io.on('connection', socket => {
 
     //   send messages or events back and forth. Emit a message from the client to the server
     // Welcome message to the current user
-    socket.emit('message', formatMessage(botName, 'Welcome to Chat!'));
+    socket.emit('message', formatMessage(username, 'Welcome to Chat!'));
 
     // Broadcast when a user connects. This will connect to everybody except the user that is connected.
     socket.broadcast.emit(
       'message',
-      formatMessage(botName, ' user has joined the chat')
+      formatMessage(username, ' user has joined the chat')
     );
   });
 
@@ -34,7 +34,7 @@ io.on('connection', socket => {
 
   // Runs when a user disconnects
   socket.on('disconnect', () => {
-    io.emit('message', 'A user has left the chat');
+    io.emit('message', formatMessage(botName, 'A user has left the chat'));
   });
 });
 
